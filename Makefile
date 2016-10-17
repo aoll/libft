@@ -20,8 +20,10 @@ else
 		CFLAGS= -Wall -Wextra -Werror
 endif
 
-LIB=ar rc
-RANLIB=ranlib
+LIB=
+
+AR= ar
+ARFLAGS= rcs
 
 NAME =libft.a
 
@@ -76,13 +78,13 @@ else
 endif
 
 $(NAME):$(OBJS)
-				$(LIB) $@ $^
-				$(RANLIB) $(NAME)
+				$(AR) $(ARFLAGS) $@ $^
+
 
 # %.o: libft.h -I
 
 $(O_DIR)/%.o: %.c
-				$(CC) $(CFLAGS) $(I_DIR) -o $@ -c $<
+				$(CC) $(CFLAGS) $(I_DIR) -c $< -o $@
 
 $(OBJS): | $(O_DIR)
 
