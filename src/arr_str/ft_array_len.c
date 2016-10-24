@@ -1,7 +1,7 @@
 #include "libft.h"
 
 /*
-** ft_array_len - return the size of a array
+** ft_array_len - return the size of a array if is terminated by null
 */
 
 size_t  ft_array_len(const void **array)

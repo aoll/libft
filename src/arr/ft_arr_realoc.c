@@ -1,5 +1,9 @@
 #include "libft.h"
 
+/*
+** return - a new t_arr * with the alloc_len * 2  and copy the old elem inside
+*/
+
 t_arr  *ft_arr_realoc(t_arr *old)
 {
   t_arr *new;

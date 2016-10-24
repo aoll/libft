@@ -1,5 +1,9 @@
 #include "libft.h"
 
+/*
+** pop a elem to arr->ptr in function of this index give in parameter
+*/
+
 int  ft_arr_pop(t_arr **arr, int index)
 {
   t_arr *tmp;

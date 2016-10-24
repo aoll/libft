@@ -60,13 +60,6 @@ struct	s_arr
 	void			(*f_del) (void **);
 };
 
-// typedef struct s_test	t_test;
-// struct	s_test
-// {
-// 	char		*ptr;
-// 	size_t			length;
-// 	size_t			size_elem;
-// };
 
 int  		ft_arr_pop(t_arr **arr, int index);
 t_arr  	*ft_arr_new(const size_t length, const size_t sizeof_elem);

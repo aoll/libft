@@ -1,5 +1,9 @@
 #include "libft.h"
 
+/*
+** take void *array and a cmp_function to sort the array
+*/
+
 void *ft_array_sort(void *arr, size_t nb_elem, size_t sizeof_elem, func_ptr_cmp f_comp)
 {
   void *tmp;

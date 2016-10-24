@@ -28,25 +28,3 @@ void  ft_array_free(void ***array)
   *array = NULL;
   return;
 }
-// void  ft_array_free(char ***array)
-// {
-//   size_t size;
-//   char **tmp;
-//
-//   size = 0;
-//   if (array == NULL)
-//     return;
-//   tmp = *array;
-//   if (!tmp)
-//     return;
-//   while (tmp[size]) {
-//     if (tmp[size]) {
-//       free(tmp[size]);
-//       tmp[size] = NULL;
-//     }
-//     size++;
-//   }
-//   free(*array);
-//   *array = NULL;
-//   return;
-// }

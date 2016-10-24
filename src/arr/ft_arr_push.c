@@ -1,5 +1,13 @@
 #include "libft.h"
 
+/*
+** push a elem to arr->ptr in function of this index give in parameter
+** if index < 0 the new elem is push , front of arr->ptr
+** if index >= arr->ptr's length the elem is push is the end
+** front or end if the new size with the futur new elem, it's realoc time with \
+** actual alloc_lenght * 2
+*/
+
 int  ft_arr_push(t_arr **arr, const void *to_push, int index)
 {
   t_arr *tmp;

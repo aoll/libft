@@ -1,5 +1,10 @@
 #include "libft.h"
 
+/*
+** return a new poiteur t_arr with a new void *
+** the real alloc length is the length past in parameter * 2 * sizeof_elem
+*/
+
 t_arr  *ft_arr_new(const size_t length, const size_t sizeof_elem)
 {
   t_arr *arr_ptr;
