@@ -12,7 +12,7 @@
 
 
 DEBUG=no
-CC=gcc
+CC=clang
 
 ifeq ($(DEBUG), yes)
 				CFLAGS= -Wall -Wextra -g -ansi -pedantic
@@ -33,15 +33,16 @@ O_DIR= obj
 
 MKDIR = mkdir
 
-VPATH= src/str:src/put:src/int:src/mem:src/char:src/file:src/lst
+VPATH= src/str:src/put:src/int:src/mem:src/char:src/file:src/lst:src/arr
 
+C_ARR=ft_array_sort.c ft_arr_new.c ft_arr_pop.c ft_arr_push.c ft_arr_realoc.c
 
 C_INT = ft_isascii.c ft_atoi.c ft_isalnum.c ft_isalpha.c  \
 				ft_isascii.c ft_isdigit.c   ft_isprint.c \
  				ft_itoa.c  ft_isspace.c\
 
 C_MEM=ft_memcpy.c ft_memmove.c ft_memset.c ft_memalloc.c \
-			ft_memccpy.c ft_memcmp.c ft_memchr.c ft_memdel.c ft_bzero.c
+			ft_memccpy.c ft_memcmp.c ft_memchr.c ft_memdel.c ft_bzero.c ft_swap.c
 
 C_STR=ft_strclr.c ft_strncmp.c ft_strcmp.c \
 			ft_strncpy.c ft_strcpy.c ft_strnequ.c ft_strdel.c \
@@ -64,7 +65,7 @@ C_LST= ft_free_list.c
 OBJS= $(C_INT:%.c=$(O_DIR)/%.o) $(C_MEM:%.c=$(O_DIR)/%.o) \
  			$(C_STR:%.c=$(O_DIR)/%.o) $(C_PUT:%.c=$(O_DIR)/%.o) \
 			$(C_CHAR:%.c=$(O_DIR)/%.o) $(C_FILE:%.c=$(O_DIR)/%.o) \
-			$(C_LST:%.c=$(O_DIR)/%.o)
+			$(C_LST:%.c=$(O_DIR)/%.o) $(C_ARR:%.c=$(O_DIR)/%.o)
 
 
 .PHONY : all clean fclean re

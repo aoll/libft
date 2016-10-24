@@ -16,6 +16,7 @@
 # define RED		0xFF0000
 # define GREEN		0x00FF00
 # define BLUE		0x0000FF
+# define MULTI_LENGHT_ARRAY 2
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -29,6 +30,15 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 
+
+# ifndef EXIT_SUCCESS
+#  define EXIT_SUCCESS	0
+#  define EXIT_FAILURE	1
+# endif
+
+
+typedef int (*func_ptr_cmp)(const void *, const void *, size_t n);
+
 typedef struct s_list	t_list;
 struct	s_list
 {
@@ -36,6 +46,38 @@ struct	s_list
 	int			*size;
 	t_list		*next;
 };
+
+typedef struct s_arr	t_arr;
+struct	s_arr
+{
+	void		*ptr;
+	void		*start;
+	size_t			length;
+	size_t			sizeof_elem;
+	size_t			alloc_len;
+	void 			(*f_print) (int);
+	void 			*(*f_cpy) (void *, const void *, size_t);
+	void			(*f_del) (void **);
+};
+
+// typedef struct s_test	t_test;
+// struct	s_test
+// {
+// 	char		*ptr;
+// 	size_t			length;
+// 	size_t			size_elem;
+// };
+
+int  		ft_arr_pop(t_arr **arr, int index);
+t_arr  	*ft_arr_new(const size_t length, const size_t sizeof_elem);
+int  		ft_arr_push(t_arr **arr, const void *to_push, int index);
+t_arr  	*ft_arr_realoc(t_arr *old);
+
+
+void *ft_array_sort(void *arr, size_t nb_elem, size_t sizeof_elem, func_ptr_cmp f_comp);
+
+void  ft_swap(void *a, void *b, size_t n);
+
 
 void	ft_free_list(t_list **list);
 void	ft_list(t_list **list, char *src);
