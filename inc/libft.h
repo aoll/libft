@@ -79,6 +79,13 @@ void *ft_array_sort(void *arr, size_t nb_elem, size_t sizeof_elem, func_ptr_cmp 
 void  ft_swap(void *a, void *b, size_t n);
 
 
+char **ft_array_str_new(const size_t size);
+char **ft_array_str_dup(const char **src);
+
+size_t  ft_array_len(const void **array);
+void  ft_array_free(void ***array);
+
+
 void	ft_free_list(t_list **list);
 void	ft_list(t_list **list, char *src);
 void	*ft_memset(void *b, int c, size_t len);

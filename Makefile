@@ -33,9 +33,11 @@ O_DIR= obj
 
 MKDIR = mkdir
 
-VPATH= src/str:src/put:src/int:src/mem:src/char:src/file:src/lst:src/arr
+VPATH= src/str:src/put:src/int:src/mem:src/char:src/file:src/lst:src/arr:src/arr_str
 
 C_ARR=ft_array_sort.c ft_arr_new.c ft_arr_pop.c ft_arr_push.c ft_arr_realoc.c
+
+C_ARR_STR= ft_array_str_new.c ft_array_str_dup.c ft_array_len.c ft_array_free.c
 
 C_INT = ft_isascii.c ft_atoi.c ft_isalnum.c ft_isalpha.c  \
 				ft_isascii.c ft_isdigit.c   ft_isprint.c \
@@ -65,7 +67,8 @@ C_LST= ft_free_list.c
 OBJS= $(C_INT:%.c=$(O_DIR)/%.o) $(C_MEM:%.c=$(O_DIR)/%.o) \
  			$(C_STR:%.c=$(O_DIR)/%.o) $(C_PUT:%.c=$(O_DIR)/%.o) \
 			$(C_CHAR:%.c=$(O_DIR)/%.o) $(C_FILE:%.c=$(O_DIR)/%.o) \
-			$(C_LST:%.c=$(O_DIR)/%.o) $(C_ARR:%.c=$(O_DIR)/%.o)
+			$(C_LST:%.c=$(O_DIR)/%.o) $(C_ARR:%.c=$(O_DIR)/%.o) \
+			$(C_ARR_STR:%.c=$(O_DIR)/%.o)
 
 
 .PHONY : all clean fclean re
