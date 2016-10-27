@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 19:45:56 by aollivie          #+#    #+#             */
-/*   Updated: 2014/11/14 18:37:50 by aollivie         ###   ########.fr       */
+/*   Created: 2014/11/04 21:48:55 by aollivie          #+#    #+#             */
+/*   Updated: 2014/11/14 18:14:01 by aollivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void  ft_swap(void *a, void *b, size_t n)
-{
-  unsigned char *tmp;
+/*
+**	return new void * width new len and copy old inside and free the old
+*/
 
-  tmp = malloc(sizeof(unsigned char) * n);
-  ft_memcpy(&tmp, b, n);
-  ft_memcpy(b, a, n);
-  ft_memcpy(a, &tmp, n);
-  free(tmp);
-  tmp = NULL;
-  return;
+void *ft_memrealloc(void *old, size_t old_n, size_t n)
+{
+  void *new;
+
+  if (!(new = malloc(n)))
+    return (NULL);
+  ft_bzero(new, n);
+  ft_memcpy(new, old, old_n);
+  free(old);
+  return (new);
 }

@@ -23,21 +23,28 @@ int		ft_mycpy(char **stat, char **line)
 	l = ft_strlen(tp);
 	if (*stat[0] == '\n' || *stat[0] == '\0')
 	{
+		free(*line);
 		*line = ft_strnew(0);
+		free(*stat);
 		*stat = ft_strsub((char *)tp, 1, l - 1);
 		free(tp);
+		tp = NULL;
 		return (1);
 	}
 	while (tp[i] != '\n' && tp[i] != '\0')
 		i++;
 	if (tp[i] == '\n')
 	{
-		*stat = ft_strnew(0);
+		free(*stat);
+		free(*line);
 		*line = ft_strsub((char *)tp, 0, i);
 		*stat = ft_strsub((char *)tp, i + 1, l - i - 1);
 		free(tp);
+		tp = NULL;
 		return (1);
 	}
+	free(tp);
+	tp = NULL;
 	return (0);
 }
 
@@ -45,6 +52,7 @@ int		get_next_line(int const fd, char **line)
 {
 	char		*buf;
 	static char *stat;
+	char *tmp;
 	int			rd;
 
 	*line = ft_strnew(0);
@@ -52,20 +60,48 @@ int		get_next_line(int const fd, char **line)
 	if (fd < 0)
 		return (-1);
 	if (stat && (rd = ft_mycpy(&stat, line)) > 0)
+	{
+		free(buf);
+		buf = NULL;
 		return (1);
+	}
 	while ((rd = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[rd] = '\0';
-		stat = ft_strjoin((const char *)stat, (const char *)buf);
-		if ((rd = ft_mycpy(&stat, line)) > 0)
+		ft_putnbr(buf[0]);
+		tmp = ft_strjoin((const char *)stat, (const char *)buf);
+		free(stat);
+		stat = NULL;
+		stat = ft_strdup(tmp);
+		free(tmp);
+		tmp = NULL;
+		if (ft_mycpy(&stat, line) > 0)
+		{
+			free(buf);
+			buf = NULL;
+			free(stat);
+			stat = NULL;
 			return (1);
+		}
+	}
+	if (rd == 0)
+	{
+		ft_putstr("super!");
+		// ft_putstr(stat);
+		free(*line);
+		*line = NULL;
+		free(buf);
+		free(stat);
+		return (0);
 	}
 	if (stat)
 	{
 		*line = ft_strdup(stat);
+		free(stat);
 		stat = NULL;
+		free(buf);
+		buf = NULL;
 		return (1);
 	}
-	*line = NULL;
 	return (0);
 }

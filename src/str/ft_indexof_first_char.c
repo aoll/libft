@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 19:45:56 by aollivie          #+#    #+#             */
-/*   Updated: 2014/11/14 18:37:50 by aollivie         ###   ########.fr       */
+/*   Created: 2014/11/06 19:31:01 by aollivie          #+#    #+#             */
+/*   Updated: 2014/11/18 16:18:21 by aollivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void  ft_swap(void *a, void *b, size_t n)
-{
-  unsigned char *tmp;
+/*
+** return the index of the first match between c and *s
+** -1 if the c is not present in s
+*/
 
-  tmp = malloc(sizeof(unsigned char) * n);
-  ft_memcpy(&tmp, b, n);
-  ft_memcpy(b, a, n);
-  ft_memcpy(a, &tmp, n);
-  free(tmp);
-  tmp = NULL;
-  return;
+int  ft_indexof_first_char(const char *s, const char c)
+{
+  int i;
+
+  i = 0;
+  while (*s) {
+    if (*s == c)
+      return (i);
+    i++;
+    s++;
+  }
+  return (-1);
 }

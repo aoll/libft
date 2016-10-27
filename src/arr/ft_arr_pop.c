@@ -4,26 +4,22 @@
 ** pop a elem to arr->ptr in function of this index give in parameter
 */
 
-int  ft_arr_pop(t_arr **arr, int index)
+void  *ft_arr_pop(t_arr **arr, int index)
 {
   t_arr *tmp;
   unsigned char *ptr;
   unsigned char *ptr_tmp;
+  void *pop;
 
-  if (!arr || !(*arr))
-    return (EXIT_FAILURE);
+  if (!arr || !(*arr) || index < 0)
+    return (NULL);
   tmp = *arr;
-  if (!tmp->length)
-    return (EXIT_SUCCESS);
-  index = index < 0 ? 0 : index;
-  index = index > (int)tmp->length ? (int)tmp->length : index;
-  ptr = tmp->ptr + (index * tmp->sizeof_elem);
-  ft_bzero(ptr, tmp->sizeof_elem);
-  if (index < (int)tmp->length)
-  {
-    ptr_tmp = tmp->ptr + (index + 1) * tmp->sizeof_elem;
-    tmp->f_cpy(ptr, ptr_tmp, tmp->sizeof_elem * (tmp->length - index - 1));
-  }
+  if (!tmp->length || index >= (int)tmp->length)
+    return (NULL);
+  ptr = (unsigned char *)tmp->ptr + (index * tmp->sizeof_elem);
+  ft_memcpy(&pop, ptr, tmp->sizeof_elem);
+  ptr_tmp = (unsigned char *)tmp->ptr + (index + 1) * tmp->sizeof_elem;
+  ft_memmove(ptr, ptr_tmp, tmp->sizeof_elem * (tmp->length - index - 1));
   tmp->length--;
-  return (EXIT_SUCCESS);
+  return (pop);
 }

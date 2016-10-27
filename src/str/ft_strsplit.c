@@ -32,7 +32,7 @@ static size_t		ft_y(char const *s, char c)
 	return (y);
 }
 
-static char			**ft_cp(char **tab, char const *s, char c, size_t lin)
+static char			**ft_cp(char **tabb, char const *s, char c, size_t lin)
 {
 	size_t		y;
 	size_t		i;
@@ -41,7 +41,7 @@ static char			**ft_cp(char **tab, char const *s, char c, size_t lin)
 	j = 0;
 	i = 0;
 	y = 0;
-	if (tab)
+	if (tabb)
 	{
 		while (y < lin)
 		{
@@ -52,18 +52,18 @@ static char			**ft_cp(char **tab, char const *s, char c, size_t lin)
 			}
 			while (s[i] != c && s[i])
 				i++;
-			tab[y] = ft_strsub(s, j, (i - j));
+			tabb[y] = ft_strsub(s, j, (i - j));
 			j = i;
 			y++;
 		}
-		tab[lin] = NULL;
+		tabb[lin] = NULL;
 	}
-	return (tab);
+	return (tabb);
 }
 
 char				**ft_strsplit(char const *s, char c)
 {
-	char		**tab;
+	char		**tabb;
 	size_t		lin;
 
 	if (!s)
@@ -71,9 +71,9 @@ char				**ft_strsplit(char const *s, char c)
 	if (!c)
 		return (NULL);
 	lin = ft_y(s, c);
-	tab = (char **)malloc(sizeof(char *) * (lin + 1));
-	if (tab == NULL)
+	tabb = (char **)malloc(sizeof(char *) * (lin + 1));
+	if (tabb == NULL)
 		return (NULL);
-	tab = ft_cp(tab, s, c, lin);
-	return (tab);
+	tabb = ft_cp(tabb, s, c, lin);
+	return (tabb);
 }

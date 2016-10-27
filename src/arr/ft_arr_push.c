@@ -2,38 +2,32 @@
 
 /*
 ** push a elem to arr->ptr in function of this index give in parameter
-** if index < 0 the new elem is push , front of arr->ptr
-** if index >= arr->ptr's length the elem is push is the end
-** front or end if the new size with the futur new elem, it's realoc time with \
+** if index < 0 the new elem is push to end
+** if index >= 0 arr->ptr's length the elem is push to index
+** front or end, if the new size with the futur new elem, it's realoc time with\
 ** actual alloc_lenght * 2
 */
 
 int  ft_arr_push(t_arr **arr, const void *to_push, int index)
 {
   t_arr *tmp;
-  t_arr *tmp_for_free;
   unsigned char *ptr;
 
-  if (!arr || !(*arr))
+  if (!arr || !(*arr) || !to_push)
     return (EXIT_FAILURE);
   tmp = *arr;
-  index = index < 0 ? -1 : index;
+  index = index < 0 ? (int)tmp->length : index;
   index = index > (int)tmp->length ? (int)tmp->length : index;
-  ptr = tmp->ptr + (index * tmp->sizeof_elem);
-  if (((size_t)ptr < (size_t)tmp->start) ||\
-  ((size_t)ptr  >= (size_t)(tmp->start + tmp->alloc_len)))
+  if ((tmp->length + 1) * tmp->sizeof_elem > tmp->alloc_len)
   {
-    tmp_for_free = *arr;
-    if (!(tmp = ft_arr_realoc(tmp)))
+    tmp->alloc_len *= MULTI_LENGHT_ARRAY;
+    if (!(tmp->ptr = ft_memrealloc(tmp->ptr, tmp->alloc_len, tmp->alloc_len)))
       return (EXIT_FAILURE);
-    tmp->f_del(&(tmp_for_free->start));
-    free(*arr);
-    *arr = tmp;
-    ptr = tmp->ptr + (index * tmp->sizeof_elem);
   }
-  tmp->f_cpy((ptr), to_push, tmp->sizeof_elem);
+  ptr = (unsigned char *)tmp->ptr + (index * tmp->sizeof_elem);
+  ft_memmove((unsigned char *)ptr + tmp->sizeof_elem, ptr,\
+  tmp->sizeof_elem * (tmp->length - index));
+  tmp->f_cpy((ptr), &to_push, tmp->sizeof_elem);
   tmp->length++;
-  if (index < 0)
-    tmp->ptr = ptr;
   return (EXIT_SUCCESS);
 }
