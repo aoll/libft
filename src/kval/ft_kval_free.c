@@ -10,10 +10,11 @@ void  ft_kval_free(void **kval)
 
   if (!kval)
     return;
-  tmp = (t_kval *)kval;
+  tmp = *((t_kval **)kval);
   if (tmp->key)
     free(tmp->key);
   if (tmp->value)
     free(tmp->value);
+  free(tmp);
   return;
 }

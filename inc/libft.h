@@ -10,13 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** DEFINE
+*/
+
 #ifndef LIBFT_H
 # define LIBFT_H
 # define BUFF_SIZE	10
-# define RED		0xFF0000
-# define GREEN		0x00FF00
-# define BLUE		0x0000FF
+
 # define MULTI_LENGHT_ARRAY 2
+
+/*
+** INCLUDE
+*/
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -39,6 +45,18 @@
 
 typedef int (*func_ptr_cmp)(const void *, const void *, size_t n);
 
+/*
+** STRUCT
+*/
+
+typedef struct s_kval	t_kval;
+struct	s_kval
+{
+	char *key;
+	char *value;
+};
+
+
 typedef struct s_list	t_list;
 struct	s_list
 {
@@ -55,29 +73,50 @@ struct	s_arr
 	size_t			length;
 	size_t			sizeof_elem;
 	size_t			alloc_len;
-	void 			(*f_print) (int);
+	void 			(*f_print) (const void *);
 	void 			*(*f_cpy) (void *, const void *, size_t);
 	void			(*f_del) (void **);
+	func_ptr_cmp f_cmp;
 };
 
-
-int  		ft_arr_pop(t_arr **arr, int index);
+/*
+** ARR
+*/
+void  ft_arr_print(const t_arr *arr);
+void  ft_arr_free(t_arr *arr);
+void  *ft_arr_pop(t_arr **arr, int index);
 t_arr  	*ft_arr_new(const size_t length, const size_t sizeof_elem);
 int  		ft_arr_push(t_arr **arr, const void *to_push, int index);
-t_arr  	*ft_arr_realoc(t_arr *old);
-
+t_arr  	*ft_arr_dup(t_arr *old);
+int  ft_arr_indexof(const t_arr *arr, const void *to_find);
 
 void *ft_array_sort(void *arr, size_t nb_elem, size_t sizeof_elem, func_ptr_cmp f_comp);
 
-void  ft_swap(void *a, void *b, size_t n);
+/*
+** KVAL
+*/
+t_kval  *ft_kval_new(void);
+void  ft_kval_free(void **kval);
+int  ft_kval_cmp_key(const void *kval,const void *key, size_t n);
 
-
+/*
+** ARRAY_STR
+*/
 char **ft_array_str_new(const size_t size);
 char **ft_array_str_dup(const char **src);
-
 size_t  ft_array_len(const void **array);
 void  ft_array_free(void ***array);
+void  ft_array_str_print(const char **s);
 
+void  ft_swap(void *a, void *b, size_t n);
+
+void *ft_memrealloc(void *old, size_t old_n, size_t n);
+
+/*
+** STR
+*/
+
+int  ft_indexof_first_char(const char *s, const char c);
 
 void	ft_free_list(t_list **list);
 void	ft_list(t_list **list, char *src);
