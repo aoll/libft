@@ -16,6 +16,8 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# define SIZE_PTR long
 # define BUFF_SIZE	10
 
 # define MULTI_LENGHT_ARRAY 2
@@ -75,6 +77,7 @@ struct	s_arr
 	size_t			alloc_len;
 	void 			(*f_print) (const void *);
 	void 			*(*f_cpy) (void *, const void *, size_t);
+	void 			*(*f_dup_elem) (const void *, size_t);
 	void			(*f_del) (void **);
 	func_ptr_cmp f_cmp;
 };

@@ -15,7 +15,7 @@ DEBUG=yes
 CC=clang
 
 ifeq ($(DEBUG), yes)
-				CFLAGS= -Wall -Wextra -g -ansi -pedantic
+				CFLAGS= -Wall -Wextra  -g -ansi -pedantic  #-fsanitize=address,undefined
 else
 		CFLAGS= -Wall -Wextra -Werror
 endif

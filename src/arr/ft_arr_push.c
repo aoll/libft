@@ -15,6 +15,8 @@ int  ft_arr_push(t_arr **arr, const void *to_push, int index)
 
   if (!arr || !(*arr) || !to_push)
     return (EXIT_FAILURE);
+  // ft_putstr((char *)to_push);
+  // ft_putstr(" :added\n");
   tmp = *arr;
   index = index < 0 ? (int)tmp->length : index;
   index = index > (int)tmp->length ? (int)tmp->length : index;
