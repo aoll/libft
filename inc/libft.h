@@ -6,7 +6,7 @@
 /*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/14 17:54:53 by aollivie          #+#    #+#             */
-/*   Updated: 2016/01/30 11:58:24 by aollivie         ###   ########.fr       */
+/*   Updated: 2017/01/28 10:28:27 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ void *ft_array_sort(void *arr, size_t nb_elem, size_t sizeof_elem, func_ptr_cmp 
 t_kval  *ft_kval_new(void);
 void  ft_kval_free(void **kval);
 int  ft_kval_cmp_key(const void *kval,const void *key, size_t n);
+int  ft_kval_set_key(t_kval *kval, const char *key);
+int  ft_kval_set_value(t_kval *kval, const char *key);
 
 /*
 ** ARRAY_STR

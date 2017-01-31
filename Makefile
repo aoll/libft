@@ -1,4 +1,4 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -6,9 +6,9 @@
 #    By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/14 17:07:06 by aollivie          #+#    #+#              #
-#    Updated: 2016/02/03 12:47:52 by aollivie         ###   ########.fr        #
+#    Updated: 2017/01/28 10:29:42 by alex             ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
 
 DEBUG=yes
@@ -38,7 +38,11 @@ VPATH= src/str:src/put:src/int:src/mem:src/char:src/file:src/lst:src/arr:src/arr
 C_ARR=ft_array_sort.c ft_arr_new.c ft_arr_pop.c ft_arr_push.c ft_arr_dup.c\
 			ft_arr_indexof.c ft_arr_free.c ft_arr_print.c
 
-C_KVAL= ft_kval_free.c ft_kval_cmp_key.c ft_kval_new.c
+C_KVAL= ft_kval_free.c \
+				ft_kval_cmp_key.c \
+				ft_kval_new.c \
+				ft_kval_set_key.c \
+				ft_kval_set_value.c
 
 C_ARR_STR= ft_array_str_new.c ft_array_str_dup.c ft_array_len.c ft_array_free.c\
 					ft_array_str_print.c

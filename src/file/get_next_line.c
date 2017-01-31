@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get5.c                                             :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 15:05:03 by aollivie          #+#    #+#             */
-/*   Updated: 2015/02/02 14:36:48 by aollivie         ###   ########.fr       */
+/*   Updated: 2017/01/22 14:43:29 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int		get_next_line(int const fd, char **line)
 	while ((rd = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[rd] = '\0';
-		ft_putnbr(buf[0]);
 		tmp = ft_strjoin((const char *)stat, (const char *)buf);
 		free(stat);
 		stat = NULL;
@@ -86,8 +85,6 @@ int		get_next_line(int const fd, char **line)
 	}
 	if (rd == 0)
 	{
-		ft_putstr("super!");
-		// ft_putstr(stat);
 		free(*line);
 		*line = NULL;
 		free(buf);
