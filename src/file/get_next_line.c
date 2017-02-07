@@ -6,7 +6,7 @@
 /*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 15:05:03 by aollivie          #+#    #+#             */
-/*   Updated: 2017/01/22 14:43:29 by alex             ###   ########.fr       */
+/*   Updated: 2017/02/06 16:08:33 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,9 @@ int		get_next_line(int const fd, char **line)
 		free(*line);
 		*line = NULL;
 		free(buf);
+		buf = NULL;
 		free(stat);
+		stat = NULL;
 		return (0);
 	}
 	if (stat)

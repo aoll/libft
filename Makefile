@@ -6,7 +6,7 @@
 #    By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/14 17:07:06 by aollivie          #+#    #+#              #
-#    Updated: 2017/01/28 10:29:42 by alex             ###   ########.fr        #
+#    Updated: 2017/02/07 14:38:50 by alex             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,16 @@ MKDIR = mkdir
 
 VPATH= src/str:src/put:src/int:src/mem:src/char:src/file:src/lst:src/arr:src/arr_str:src/kval
 
-C_ARR=ft_array_sort.c ft_arr_new.c ft_arr_pop.c ft_arr_push.c ft_arr_dup.c\
-			ft_arr_indexof.c ft_arr_free.c ft_arr_print.c
+C_ARR=ft_array_sort.c \
+			ft_arr_new.c \
+			ft_arr_pop.c \
+			ft_arr_push.c \
+			ft_arr_dup.c\
+			ft_arr_indexof.c \
+			ft_arr_free.c \
+			ft_arr_print.c \
+			ft_arr_str.c \
+			ft_arr_close_fd.c
 
 C_KVAL= ft_kval_free.c \
 				ft_kval_cmp_key.c \
@@ -60,7 +68,9 @@ C_STR=ft_strclr.c ft_strncmp.c ft_strcmp.c \
 			ft_strrchr.c ft_strsplit.c ft_striter.c ft_striteri.c \
 			ft_strjoin.c ft_strstr.c ft_strlcat.c ft_strsub.c \
 			ft_strlen.c ft_strcat.c	ft_strmapi.c \
-			ft_strchr.c	ft_strncat.c ft_strtrim.c ft_strmap.c ft_indexof_first_char.c
+			ft_strchr.c	ft_strncat.c ft_strtrim.c ft_strmap.c \
+			ft_indexof_first_char.c \
+			ft_strjoin_free.c
 
 C_PUT=ft_putchar.c ft_putchar_fd.c ft_putendl.c \
  				ft_putendl_fd.c ft_putstr.c \

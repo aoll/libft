@@ -7,8 +7,9 @@
 void  ft_arr_print(const t_arr *arr)
 {
   int i;
-  const t_arr *tmp;
+  t_arr *tmp;
   unsigned char *ptr;
+  void *elem;
 
   if (!arr)
     return;
@@ -17,9 +18,16 @@ void  ft_arr_print(const t_arr *arr)
   i = 0;
   while (i < (int)tmp->length)
   {
-    tmp->f_print(ptr);
-    ptr += tmp->sizeof_elem;
+    elem = (void *)((unsigned char *)tmp->ptr + i * tmp->sizeof_elem);
+    tmp->f_print(elem);
+    // ptr += tmp->sizeof_elem;
     i++;
   }
+  // while (i < (int)tmp->length)
+  // {
+  //   tmp->f_print(ptr);
+  //   ptr += tmp->sizeof_elem;
+  //   i++;
+  // }
   return;
 }

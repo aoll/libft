@@ -6,7 +6,7 @@
 /*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/12 17:01:55 by aollivie          #+#    #+#             */
-/*   Updated: 2014/11/19 20:03:53 by aollivie         ###   ########.fr       */
+/*   Updated: 2017/02/07 16:27:24 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	if (!s1 && s2[i])
 	{
-		str = ft_strcpy(ft_strnew(ft_strlen((char *)s2)), (char *)s2);
-		return (str);
+		return (ft_strcpy(ft_strnew(ft_strlen((char *)s2)), (char *)s2));
 	}
 	if (!s2 && s1[i])
 	{
-		str = ft_strcpy(ft_strnew(ft_strlen((char *)s1)), (char *)s1);
-		return (str);
+		return (ft_strcpy(ft_strnew(ft_strlen((char *)s1)), (char *)s1));
 	}
 	if (!(str = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
 		return (NULL);

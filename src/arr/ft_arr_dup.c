@@ -16,14 +16,18 @@ t_arr  *ft_arr_dup(t_arr *old)
     return (NULL);
   new->f_print = old->f_print;
   new->f_cpy = old->f_cpy;
+  new->f_cmp = old->f_cmp;
   new->f_dup_elem = old->f_dup_elem;
   new->f_del = old->f_del;
   tmp = old->ptr;
   index = 0;
   while (index < (int)old->length)
   {
-    ft_arr_push(&new, old->f_dup_elem(tmp, old->sizeof_elem), -1);
-    tmp += old->sizeof_elem;
+    if (tmp)
+    {
+      ft_arr_push(&new, old->f_dup_elem(tmp, old->sizeof_elem), -1);
+      tmp += old->sizeof_elem;
+    }
     index++;
   }
   return (new);

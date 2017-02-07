@@ -6,7 +6,7 @@
 /*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/14 17:54:53 by aollivie          #+#    #+#             */
-/*   Updated: 2017/01/28 10:28:27 by alex             ###   ########.fr       */
+/*   Updated: 2017/02/07 14:36:51 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@
 # ifndef EXIT_SUCCESS
 #  define EXIT_SUCCESS	0
 #  define EXIT_FAILURE	1
+# endif
+
+# ifndef STD
+#  define STDOUT	1
+#  define STDERR	2
 # endif
 
 
@@ -93,7 +98,13 @@ int  		ft_arr_push(t_arr **arr, const void *to_push, int index);
 t_arr  	*ft_arr_dup(t_arr *old);
 int  ft_arr_indexof(const t_arr *arr, const void *to_find);
 
+int  ft_arr_str(t_arr *arr, const char *str);
+void  *ft_arr_kvaldup(const void *s, size_t n);
+
+void ft_arr_close_fd(t_arr *arr);
+
 void *ft_array_sort(void *arr, size_t nb_elem, size_t sizeof_elem, func_ptr_cmp f_comp);
+
 
 /*
 ** KVAL
@@ -102,8 +113,8 @@ t_kval  *ft_kval_new(void);
 void  ft_kval_free(void **kval);
 int  ft_kval_cmp_key(const void *kval,const void *key, size_t n);
 int  ft_kval_set_key(t_kval *kval, const char *key);
-int  ft_kval_set_value(t_kval *kval, const char *key);
-
+int  ft_kval_set_value(t_kval *kval, const char *value);
+t_kval  *ft_kval_dup(const t_kval *old);
 /*
 ** ARRAY_STR
 */
@@ -115,13 +126,14 @@ void  ft_array_str_print(const char **s);
 
 void  ft_swap(void *a, void *b, size_t n);
 
-void *ft_memrealloc(void *old, size_t old_n, size_t n);
+void *ft_memrealloc(void **old, size_t old_n, size_t n);
 
 /*
 ** STR
 */
 
 int  ft_indexof_first_char(const char *s, const char c);
+char  *ft_strjoin_free(char **dest, const char *add_str);
 
 void	ft_free_list(t_list **list);
 void	ft_list(t_list **list, char *src);

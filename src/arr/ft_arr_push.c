@@ -22,8 +22,9 @@ int  ft_arr_push(t_arr **arr, const void *to_push, int index)
   index = index > (int)tmp->length ? (int)tmp->length : index;
   if ((tmp->length + 1) * tmp->sizeof_elem > tmp->alloc_len)
   {
-    if (!(tmp->ptr = ft_memrealloc(tmp->ptr, tmp->alloc_len, tmp->alloc_len * MULTI_LENGHT_ARRAY)))
+    if (!(tmp->ptr = ft_memrealloc(&tmp->ptr, tmp->alloc_len, tmp->alloc_len * MULTI_LENGHT_ARRAY)))
       return (EXIT_FAILURE);
+
     tmp->alloc_len *= MULTI_LENGHT_ARRAY;
   }
   ptr = (unsigned char *)tmp->ptr + (index * tmp->sizeof_elem);

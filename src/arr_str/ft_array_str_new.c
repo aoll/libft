@@ -13,12 +13,12 @@ char **ft_array_str_new(const size_t size)
   new_array = NULL;
   if (size <= 0)
     return (NULL);
-  if (!(new_array = (char **)malloc(sizeof(char *) * size + 1)))
+  if (!(new_array = (char **)malloc(sizeof(char *) * (size + 1))))
     return (NULL);
   new_array[size] = NULL;
-  while (x < size) {
-    if (!(new_array[x] = ft_strnew(0)))
-      return (NULL);
+  while (x < size)
+  {
+    new_array[x] = NULL;
     x++;
   }
   return (new_array);
