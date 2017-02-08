@@ -25,7 +25,7 @@ t_arr  *ft_arr_dup(t_arr *old)
   {
     if (tmp)
     {
-      ft_arr_push(&new, old->f_dup_elem(tmp, old->sizeof_elem), -1);
+      ft_arr_push(new, old->f_dup_elem(tmp, old->sizeof_elem), -1);
       tmp += old->sizeof_elem;
     }
     index++;

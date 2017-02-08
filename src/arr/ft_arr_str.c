@@ -11,7 +11,7 @@ int  ft_arr_str(t_arr *arr, const char *str)
   while (*str)
   {
     *char_line = *str;
-    ft_arr_push(&arr, ft_strdup(char_line), -1);
+    ft_arr_push(arr, ft_strdup(char_line), -1);
     *char_line = '\0';
     str++;
   }

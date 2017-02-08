@@ -8,16 +8,14 @@
 ** actual alloc_lenght * 2
 */
 
-int  ft_arr_push(t_arr **arr, const void *to_push, int index)
+int  ft_arr_push(t_arr *arr, const void *to_push, int index)
 {
   t_arr *tmp;
   unsigned char *ptr;
 
-  if (!arr || !(*arr) || !to_push)
+  if (!arr || !to_push)
     return (EXIT_FAILURE);
-  // ft_putstr((char *)to_push);
-  // ft_putstr(" :added\n");
-  tmp = *arr;
+  tmp = arr;
   index = index < 0 ? (int)tmp->length : index;
   index = index > (int)tmp->length ? (int)tmp->length : index;
   if ((tmp->length + 1) * tmp->sizeof_elem > tmp->alloc_len)
