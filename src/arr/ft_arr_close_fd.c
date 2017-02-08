@@ -26,7 +26,7 @@ void  ft_arr_close_fd(t_arr *arr)
   }
   while (arr->length)
   {
-    fd = (int *)(ft_arr_pop(&arr, 0));
+    fd = (int *)(ft_arr_pop(arr, 0));
     if (fd)
     {
       if (*fd >= 0)

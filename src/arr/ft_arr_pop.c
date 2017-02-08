@@ -4,16 +4,16 @@
 ** pop a elem to arr->ptr in function of this index give in parameter
 */
 
-void  *ft_arr_pop(t_arr **arr, int index)
+void  *ft_arr_pop(t_arr *arr, int index)
 {
   t_arr *tmp;
   unsigned char *ptr;
   unsigned char *ptr_tmp;
   void *pop;
 
-  if (!arr || !(*arr) || index < 0)
+  if (!arr || index < 0)
     return (NULL);
-  tmp = *arr;
+  tmp = arr;
   if (!tmp->length || index >= (int)tmp->length)
     return (NULL);
   ptr = (unsigned char *)tmp->ptr + (index * tmp->sizeof_elem);

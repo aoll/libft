@@ -6,7 +6,7 @@
 /*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/14 17:54:53 by aollivie          #+#    #+#             */
-/*   Updated: 2017/02/08 08:19:35 by alex             ###   ########.fr       */
+/*   Updated: 2017/02/08 08:30:25 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ struct	s_arr
 */
 void  ft_arr_print(const t_arr *arr);
 void  ft_arr_free(t_arr *arr);
-void  *ft_arr_pop(t_arr **arr, int index);
+void  *ft_arr_pop(t_arr *arr, int index);
 t_arr  	*ft_arr_new(const size_t length, const size_t sizeof_elem);
 int  		ft_arr_push(t_arr *arr, const void *to_push, int index);
 t_arr  	*ft_arr_dup(t_arr *old);
