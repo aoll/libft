@@ -6,7 +6,7 @@
 /*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/14 17:54:53 by aollivie          #+#    #+#             */
-/*   Updated: 2017/02/08 08:30:25 by alex             ###   ########.fr       */
+/*   Updated: 2017/02/09 12:55:52 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@
 # ifndef STD
 #  define STDOUT	1
 #  define STDERR	2
+#  define STDIN	0
 # endif
 
 
@@ -121,7 +122,7 @@ t_kval  *ft_kval_dup(const t_kval *old);
 char **ft_array_str_new(const size_t size);
 char **ft_array_str_dup(const char **src);
 size_t  ft_array_len(const void **array);
-void  ft_array_free(void ***array);
+void  ft_array_free(void *array);
 void  ft_array_str_print(const char **s);
 
 void  ft_swap(void *a, void *b, size_t n);
@@ -134,6 +135,7 @@ void *ft_memrealloc(void **old, size_t old_n, size_t n);
 
 int  ft_indexof_first_char(const char *s, const char c);
 char  *ft_strjoin_free(char **dest, const char *add_str);
+void  ft_str_free(void *str);
 
 void	ft_free_list(t_list **list);
 void	ft_list(t_list **list, char *src);

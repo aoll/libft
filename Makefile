@@ -6,7 +6,7 @@
 #    By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/14 17:07:06 by aollivie          #+#    #+#              #
-#    Updated: 2017/02/07 14:38:50 by alex             ###   ########.fr        #
+#    Updated: 2017/02/08 12:37:51 by alex             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,8 @@ C_STR=ft_strclr.c ft_strncmp.c ft_strcmp.c \
 			ft_strlen.c ft_strcat.c	ft_strmapi.c \
 			ft_strchr.c	ft_strncat.c ft_strtrim.c ft_strmap.c \
 			ft_indexof_first_char.c \
-			ft_strjoin_free.c
+			ft_strjoin_free.c \
+			ft_str_free.c
 
 C_PUT=ft_putchar.c ft_putchar_fd.c ft_putendl.c \
  				ft_putendl_fd.c ft_putstr.c \
