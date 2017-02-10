@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 12:29:29 by alex              #+#    #+#             */
-/*   Updated: 2017/02/09 09:50:38 by alex             ###   ########.fr       */
+/*   Updated: 2017/02/10 14:44:00 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,26 @@
 ** ft_array_free - free and set to null a array char **
 */
 
-void  ft_array_free(void *array)
+void  ft_array_free(char ***array)
 {
   char **tab;
   int i;
 
   if (!array)
     return;
-  tab = *(char **)array;
+  tab = *array;
   if (!tab)
+  {
+    *array = NULL;
     return;
-  if (!*tab)
-    return;
+  }
   i = 0;
   while (tab[i])
   {
     free(tab[i]);
     i++;
   }
-  free(tab);
-  tab = NULL;
-  tab = (char ***)array;
-  *tab = NULL;
+  free(*array);
+  *array = NULL;
   return;
 }

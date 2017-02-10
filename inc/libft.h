@@ -6,7 +6,7 @@
 /*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/14 17:54:53 by aollivie          #+#    #+#             */
-/*   Updated: 2017/02/09 12:55:52 by alex             ###   ########.fr       */
+/*   Updated: 2017/02/10 14:35:00 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ t_kval  *ft_kval_dup(const t_kval *old);
 char **ft_array_str_new(const size_t size);
 char **ft_array_str_dup(const char **src);
 size_t  ft_array_len(const void **array);
-void  ft_array_free(void *array);
+void  ft_array_free(char ***array);
 void  ft_array_str_print(const char **s);
 
 void  ft_swap(void *a, void *b, size_t n);
