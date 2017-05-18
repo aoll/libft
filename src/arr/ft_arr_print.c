@@ -6,7 +6,7 @@
 /*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/18 16:59:43 by aollivie          #+#    #+#             */
-/*   Updated: 2017/05/18 17:00:54 by aollivie         ###   ########.fr       */
+/*   Updated: 2017/05/18 17:42:38 by aollivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,17 @@
 void	ft_arr_print(const t_arr *arr)
 {
 	int				i;
-	t_arr			*tmp;
 	unsigned char	*ptr;
 	void			*elem;
 
 	if (!arr)
 		return ;
-	tmp = arr;
-	ptr = tmp->ptr;
+	ptr = arr->ptr;
 	i = 0;
-	while (i < (int)tmp->length)
+	while (i < (int)arr->length)
 	{
-		elem = (void *)((unsigned char *)tmp->ptr + i * tmp->sizeof_elem);
-		tmp->f_print(elem);
+		elem = (void *)((unsigned char *)arr->ptr + i * arr->sizeof_elem);
+		arr->f_print(elem);
 		i++;
 	}
 	return ;
