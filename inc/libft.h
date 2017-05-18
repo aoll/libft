@@ -6,7 +6,7 @@
 /*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/14 17:54:53 by aollivie          #+#    #+#             */
-/*   Updated: 2017/02/10 14:35:00 by alex             ###   ########.fr       */
+/*   Updated: 2017/05/18 17:40:26 by aollivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
 # define SIZE_PTR long
 # define BUFF_SIZE	10
-
 # define MULTI_LENGHT_ARRAY 2
 
 /*
@@ -37,8 +35,6 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/uio.h>
-
-
 # ifndef EXIT_SUCCESS
 #  define EXIT_SUCCESS	0
 #  define EXIT_FAILURE	1
@@ -47,11 +43,10 @@
 # ifndef STD
 #  define STDOUT	1
 #  define STDERR	2
-#  define STDIN	0
+#  define STDIN		0
 # endif
 
-
-typedef int (*func_ptr_cmp)(const void *, const void *, size_t n);
+typedef int	(*t_func_ptr_cmp)	(const void *a, const void *b, size_t n);
 
 /*
 ** STRUCT
@@ -64,7 +59,6 @@ struct	s_kval
 	char *value;
 };
 
-
 typedef struct s_list	t_list;
 struct	s_list
 {
@@ -76,67 +70,65 @@ struct	s_list
 typedef struct s_arr	t_arr;
 struct	s_arr
 {
-	void		*ptr;
-	void		*start;
+	void			*ptr;
+	void			*start;
 	size_t			length;
 	size_t			sizeof_elem;
 	size_t			alloc_len;
-	void 			(*f_print) (const void *);
-	void 			*(*f_cpy) (void *, const void *, size_t);
-	void 			*(*f_dup_elem) (const void *, size_t);
-	void			(*f_del) (void **);
-	func_ptr_cmp f_cmp;
+	void			(*f_print)(const void *);
+	void			*(*f_cpy)(void *, const void *, size_t);
+	void			*(*f_dup_elem)(const void *, size_t);
+	void			(*f_del)(void **);
+	t_func_ptr_cmp	f_cmp;
 };
 
 /*
 ** ARR
 */
-void  ft_arr_print(const t_arr *arr);
-void  ft_arr_free(t_arr *arr);
-void  *ft_arr_pop(t_arr *arr, int index);
-t_arr  	*ft_arr_new(const size_t length, const size_t sizeof_elem);
-int  		ft_arr_push(t_arr *arr, const void *to_push, int index);
-t_arr  	*ft_arr_dup(t_arr *old);
-int  ft_arr_indexof(const t_arr *arr, const void *to_find);
 
-int  ft_arr_str(t_arr *arr, const char *str);
-void  *ft_arr_kvaldup(const void *s, size_t n);
-
-void ft_arr_close_fd(t_arr *arr);
-
-void *ft_array_sort(void *arr, size_t nb_elem, size_t sizeof_elem, func_ptr_cmp f_comp);
-
+void	ft_arr_print(const t_arr *arr);
+void	ft_arr_free(t_arr *arr);
+void	*ft_arr_pop(t_arr *arr, int index);
+t_arr	*ft_arr_new(const size_t length, const size_t sizeof_elem);
+int		ft_arr_push(t_arr *arr, const void *to_push, int index);
+t_arr	*ft_arr_dup(t_arr *old);
+int		ft_arr_indexof(const t_arr *arr, const void *to_find);
+int		ft_arr_str(t_arr *arr, const char *str);
+void	*ft_arr_kvaldup(const void *s, size_t n);
+void	ft_arr_close_fd(t_arr *arr);
+void	*ft_array_sort(
+	void *arr, size_t nb_elem, size_t sizeof_elem, t_func_ptr_cmp f_comp);
 
 /*
 ** KVAL
 */
-t_kval  *ft_kval_new(void);
-void  ft_kval_free(void **kval);
-int  ft_kval_cmp_key(const void *kval,const void *key, size_t n);
-int  ft_kval_set_key(t_kval *kval, const char *key);
-int  ft_kval_set_value(t_kval *kval, const char *value);
-t_kval  *ft_kval_dup(const t_kval *old);
+
+t_kval	*ft_kval_new(void);
+void	ft_kval_free(void **kval);
+int		ft_kval_cmp_key(const void *kval, const void *key, size_t n);
+int		ft_kval_set_key(t_kval *kval, const char *key);
+int		ft_kval_set_value(t_kval *kval, const char *value);
+t_kval	*ft_kval_dup(const t_kval *old);
+
 /*
 ** ARRAY_STR
 */
-char **ft_array_str_new(const size_t size);
-char **ft_array_str_dup(const char **src);
-size_t  ft_array_len(const void **array);
-void  ft_array_free(char ***array);
-void  ft_array_str_print(const char **s);
 
-void  ft_swap(void *a, void *b, size_t n);
-
-void *ft_memrealloc(void **old, size_t old_n, size_t n);
+char	**ft_array_str_new(const size_t size);
+char	**ft_array_str_dup(const char **src);
+size_t	ft_array_len(const void **array);
+void	ft_array_free(char ***array);
+void	ft_array_str_print(const char **s);
+void	ft_swap(void *a, void *b, size_t n);
+void	*ft_memrealloc(void **old, size_t old_n, size_t n);
 
 /*
 ** STR
 */
 
-int  ft_indexof_first_char(const char *s, const char c);
-char  *ft_strjoin_free(char **dest, const char *add_str);
-void  ft_str_free(void *str);
-
+int		ft_indexof_first_char(const char *s, const char c);
+char	*ft_strjoin_free(char **dest, const char *add_str);
+void	ft_str_free(void *str);
 void	ft_free_list(t_list **list);
 void	ft_list(t_list **list, char *src);
 void	*ft_memset(void *b, int c, size_t len);
