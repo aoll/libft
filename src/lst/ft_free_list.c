@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aollivie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 08:55:09 by aollivie          #+#    #+#             */
-/*   Updated: 2016/01/30 11:44:16 by aollivie         ###   ########.fr       */
+/*   Updated: 2017/05/18 17:11:10 by aollivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_free_list_st(char **i, int **l)
 	if (*i != NULL)
 		free(i);
 	if (*l != NULL)
-	    free(l);
+		free(l);
 	l = NULL;
 	i = NULL;
 	return ;

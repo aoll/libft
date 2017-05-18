@@ -18,7 +18,7 @@ void	ft_putstr(char const *s)
 
 	i = 0;
 	if (!s)
-		return;
+		return ;
 	while (s[i])
 	{
 		ft_putchar(s[i]);

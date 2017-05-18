@@ -6,7 +6,7 @@
 /*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 22:12:40 by aollivie          #+#    #+#             */
-/*   Updated: 2014/11/14 18:34:09 by aollivie         ###   ########.fr       */
+/*   Updated: 2017/05/18 17:12:08 by aollivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-		char		*dswap;
-		const char	*sswap;
+	char		*dswap;
+	const char	*sswap;
 
-		dswap = dest;
-		sswap = src;
-		if (dest != src)
+	dswap = dest;
+	sswap = src;
+	if (dest != src)
 		while (n--)
 			*dswap++ = *sswap++;
-		return (dest);
+	return (dest);
 }

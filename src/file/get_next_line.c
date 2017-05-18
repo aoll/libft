@@ -6,7 +6,7 @@
 /*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 15:05:03 by aollivie          #+#    #+#             */
-/*   Updated: 2017/04/21 15:16:13 by alex             ###   ########.fr       */
+/*   Updated: 2017/05/18 17:06:59 by aollivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	ft_mycpy_tp(char **line, char **stat, char **tp, int l)
 	return (1);
 }
 
-static int		ft_mycpy(char **stat, char **line)
+static int	ft_mycpy(char **stat, char **line)
 {
 	size_t	i;
 	size_t	l;
@@ -71,10 +71,10 @@ static int		ft_mycpy(char **stat, char **line)
 	return (0);
 }
 
-static int	ft_get_loop(int const fd, char **line , char **stat)
+static int	ft_get_loop(int const fd, char **line, char **stat)
 {
 	char		*buf;
-	char 		*tmp;
+	char		*tmp;
 	int			rd;
 
 	buf = ft_strnew(BUFF_SIZE);
@@ -98,9 +98,9 @@ static int	ft_get_loop(int const fd, char **line , char **stat)
 	return (EXIT_SUCCESS);
 }
 
-int				get_next_line(int const fd, char **line)
+int			get_next_line(int const fd, char **line)
 {
-	static char *stat;
+	static char	*stat;
 	int			rd;
 
 	*line = ft_strnew(0);
