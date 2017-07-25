@@ -6,7 +6,7 @@
 #    By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/14 17:07:06 by aollivie          #+#    #+#              #
-#    Updated: 2017/05/18 17:50:36 by aollivie         ###   ########.fr        #
+#    Updated: 2017/07/24 17:55:48 by alex             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC=clang
 ifeq ($(DEBUG), yes)
 				CFLAGS= -Wall -Wextra  -g -ansi -pedantic  #-fsanitize=address,undefined
 else
-		CFLAGS= -Wall -Wextra -Werror
+		CFLAGS= -Wall -Wextra -Werror -fPIC
 endif
 
 LIB=
@@ -103,11 +103,9 @@ endif
 $(NAME):$(OBJS)
 				$(AR) $(ARFLAGS) $@ $^
 
-
-# %.o: libft.h -I
-
 $(O_DIR)/%.o: %.c
 				$(CC) $(CFLAGS) $(I_DIR) -c $< -o $@
+
 
 $(OBJS): | $(O_DIR)
 
